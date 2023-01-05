@@ -1,0 +1,105 @@
+@import "assets/scss/config/fonts";
+@import "assets/scss/config/reset";
+@import "assets/scss/config/vars";
+@import "assets/scss/config/utility";
+@import "assets/scss/modules/typography";
+@import "assets/scss/modules/fields";
+@import "assets/scss/modules/buttons";
+@import "assets/scss/modules/toast";
+@import "assets/scss/config/global";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+.app-author {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.app-container {
+  --gap: 15px;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  background-color: var(--bcs-grey-4);
+  padding: 10px;
+  transition: all 0.3s var(--ease-elastic-1);
+}
+
+.todo {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05), 0 25px 35px rgba(0, 0, 0, 0.03);
+  max-width: 600px;
+  width: 100%;
+  display: grid;
+  gap: var(--gap);
+
+  header {
+    display: grid;
+    gap: 10px;
+
+    @media (min-width: 576px) {
+      grid-template-columns: 1fr 180px;
+      align-items: center;
+
+      .title {
+        grid-column: 1/-1;
+      }
+    }
+
+    p {
+      min-height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+  }
+
+  .content {
+    display: grid;
+    gap: var(--gap);
+  }
+
+  ul {
+    display: grid;
+    gap: 10px;
+  }
+
+  li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    button {
+      padding: 4px;
+      border: 0;
+    }
+
+    span[data-label] {
+      flex-grow: 1;
+      word-break: break-all;
+    }
+
+    .edit {
+      padding: 4px;
+      flex-grow: 1;
+      border: 0;
+      background-color: #fff;
+    }
+
+    &.complete {
+      span {
+        text-decoration: line-through;
+      }
+    }
+  }
+
+  svg {
+    pointer-events: none;
+  }
+}
+
